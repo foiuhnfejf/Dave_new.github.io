@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+           <video controls>
+        <source src="../video/plankton.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+    <div style="position: absolute; top: 24px; right: 24px;">
+     <a href="../index.html" style="padding: 10px 24px; border-radius: 6px; background: #007bff; color: #fff; border: none; font-size: 1em; text-decoration: none;">
+        Back to Home
+     </a>
+    </div>
+
+</body>
+</html>

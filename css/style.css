@@ -1,0 +1,317 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  animation: gradientBackground 15s ease infinite;
+  background: linear-gradient(-45deg, #fbd3e9, #bbdefb, #c8e6c9, #ffe0b2);
+  background-size: 400% 400%;
+}
+
+/* Smooth animated gradient */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Navigation */
+nav {
+  background-color: #f5f1ea;
+  color: #000000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 16px;
+}
+
+nav ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 16px 8px;
+  display: block;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav ul li a:hover {
+  background-color: #ffffff;
+  color: #fff;
+}
+
+/* Projects Container */
+.projects-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 48px 16px;
+
+}
+
+.project-box {
+  width: 380px;
+  height: 580px;
+  perspective: 1000px;
+  margin-bottom: 32px;
+}
+
+.project-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.project-box:hover .project-box-inner {
+  transform: rotateY(180deg);
+}
+
+.project-box-front,
+.project-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-box-front img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.project-box-front .project-info {
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.project-box-back {
+  transform: rotateY(180deg);
+  background: #007bff;
+  color: #fff;
+}
+
+.project-box-back .project-info {
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.project-info h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.project-box-back .project-info h3 {
+  color: #fff;
+}
+
+.project-info p {
+  color: #555;
+  font-size: 1em;
+  margin-bottom: 16px;
+}
+
+.project-box-back .project-info p {
+  color: #fff;
+}
+
+.project-info a {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.project-box-back .project-info a {
+  background: #fff;
+  color: #007bff;
+}
+
+.project-info a:hover {
+  background: #0056b3;
+  color: #fff;
+}
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .project-box {
+    width: 45%;
+    height: 360px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 12px 0;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .project-box {
+    width: 100%;
+    height: 340px;
+  }
+
+  .project-info h3 {
+    font-size: 1.1em;
+  }
+
+  .project-info p {
+    font-size: 0.95em;
+  }
+
+  .project-info a {
+    padding: 6px 16px;
+    font-size: 0.95em;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  nav ul li {
+    margin: 8px 0;
+  }
+
+  nav ul li a {
+    font-size: 1em;
+    padding: 10px 6px;
+  }
+}
+
+
+
+/* Flip when scrolled into view */
+.project-box.animate-on-scroll {
+  opacity: 0;
+  transform: rotateY(90deg);
+  transition: transform 0.8s ease-out, opacity 0.6s ease-out;
+}
+
+.project-box.in-view {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+
+
+
+
+/* about */
+.project-info{
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.content-2 {
+  grid-area: content-2;
+  height: 500px;
+  padding: 20px;
+  margin: 5px;
+}
+
+.content-3 {
+  grid-area: content-3;
+  height: 500px;
+  padding: 20px;
+  margin: 5px;
+}
+/* animation */
+
+/* ===== Overall Container Style ===== */
+.container {
+  display: flex; /* Arrange children in a row (horizontal) */
+  justify-content: space-around; /* Space out the boxes evenly */
+  align-items: center; /* Vertically center items if there's extra height */
+  flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
+  padding: 50px; /* Add space around the whole container */
+  gap: 20px; /* Add space between the two boxes */
+}
+
+/* ===== Base Style for Both Boxes ===== */
+.item {
+  width: 40%; /* Each box takes 40% of container width */
+  min-height: 200px; /* Minimum height for visibility */
+  background: linear-gradient(135deg, #6C52D9, #3EDFD7); /* Gradient background */
+  color: white; /* Text color */
+  font-size: 20px; /* Text size */
+  font-weight: bold; /* Bold text */
+  display: flex; /* Use flex to center content */
+  justify-content: center; /* Horizontally center text */
+  align-items: center; /* Vertically center text */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Shadow effect */
+  transition: all 0.6s ease-in-out; /* Smooth transition for animations */
+  border: 4px solid #222; /* Border for contrast */
+}
+
+/* ===== Scroll Animation: Base State ===== */
+.animate-on-scroll {
+  opacity: 0; /* Initially invisible */
+  transform: translateY(60px); /* Start slightly below */
+}
+
+/* ===== Scroll Animation: In View ===== */
+.animate-on-scroll.in-view {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide up into place */
+}
+
+/* ===== Optional: Custom animation directions for each box ===== */
+.content-2.animate-on-scroll {
+  transform: translateX(-80px); /* Slide in from the left */
+}
+.content-3.animate-on-scroll {
+  transform: translateX(80px); /* Slide in from the right */
+}
+
+.content-2.in-view,
+.content-3.in-view {
+  transform: translateX(0); /* Move to final position */
+  opacity: 1; /* Fully visible */
+}
+
+
