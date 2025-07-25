@@ -129,6 +129,40 @@ this code
     <div class="item content-6 animate-on-scroll">Flip In</div>
     <div class="item footer animate-on-scroll">Footer</div>
   </div>
-      <script src="js/main.js"></script>
+
+  <!-- === Embedded JS === -->
+  <script>
+    const scrollElements = document.querySelectorAll(".animate-on-scroll");
+
+    const elementInView = (el, offset = 100) => {
+      const elementTop = el.getBoundingClientRect().top;
+      return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
+    };
+
+    const displayScrollElement = (element) => {
+      element.classList.add("in-view");
+    };
+
+    const hideScrollElement = (element) => {
+      element.classList.remove("in-view");
+    };
+
+    const handleScrollAnimation = () => {
+      scrollElements.forEach((el) => {
+        if (elementInView(el)) {
+          displayScrollElement(el);
+        } else {
+          hideScrollElement(el);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", () => {
+      handleScrollAnimation();
+    });
+
+    // Initial trigger
+    handleScrollAnimation();
+  </script>
 </body>
 </html>
